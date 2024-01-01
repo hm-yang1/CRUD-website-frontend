@@ -1,0 +1,57 @@
+import * as React from 'react';
+import { styled, alpha } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import InputBase from '@mui/material/InputBase';
+import Badge from '@mui/material/Badge';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MoreIcon from '@mui/icons-material/MoreVert';
+import Topbar  from '../../components/topbar/topbar'
+import Sidebar from '../../components/sidebar/sidebar';
+import { Button, FormControlLabel, Stack, Switch } from '@mui/material';
+import PostCards from '../../components/posts/cards';
+import { GetAllPostsHandler } from '../../APIHandlers/posts/GetAllPostHandler';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router';
+
+export default function Home() {
+    return (
+        <Box>
+            <Topbar />
+            <Stack 
+                direction="row" 
+                spacing={2} 
+                justifyContent="space-between"
+                zIndex={0}
+            >
+                <Box 
+                    flex={4} 
+                    p={{ xs: 0, md: 2 }} 
+                    bgcolor="white"
+                    position={'relative'}
+                    zIndex={3}
+                >
+                    <PostCards getPostsHandler={(string:string) => GetAllPostsHandler(string)}/>
+                </Box>
+                <Box
+                    position={{ xs: 'static', md: 'sticky' }} 
+                    top={{ xs: 'auto', md: 0 }}
+                    flex={1}
+                    zIndex={2}
+                    minHeight={'100vh'}
+                >
+                <Sidebar/>
+                </Box>
+            </Stack>
+        </Box>
+    )
+}
