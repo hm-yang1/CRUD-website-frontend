@@ -20,6 +20,7 @@ interface UpvoteButtonProps {
 const UpvoteButton: React.FC<UpvoteButtonProps> = ({ isPost, id }) => {
     const [isUpvoted, setIsUpvoted] = useState(false);
     const { isAuthenticated, AuthUsername} = UseAuth();
+    const navigate = useNavigate();
     const request: UpvoteRequest = {
         postid: id,
         commentid: id,
@@ -62,6 +63,9 @@ const UpvoteButton: React.FC<UpvoteButtonProps> = ({ isPost, id }) => {
     }
 
     function handleClick() {
+        if (!isAuthenticated) {
+            navigate('/login')
+        }
         if (isUpvoted) {
             handleDeleteUpvoteClick();
         } else {

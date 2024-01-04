@@ -46,11 +46,6 @@ export type CommentRequest = {
     description: string;
 }
 
-export type Tag = {
-    tagid: number;
-    name: string;
-}
-
 export type Upvote = {
     postid: number;
     commentid: number;
@@ -62,4 +57,9 @@ export type UpvoteRequest = {
     postid: number;
     commentid: number;
     username: string;
+}
+
+export type Tag = {
+    tagid: number;
+    name: string;
 }

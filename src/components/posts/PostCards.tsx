@@ -1,39 +1,62 @@
-import React, { useEffect, useState } from 'react';
-import { GetAllPostsHandler } from '../../APIHandlers/posts/GetAllPostHandler';
+import React, { useEffect, useRef, useState } from 'react';
 import { Post } from '../../types/types';
-import  PostCard from './card'
+import  PostCard from './PostCard'
 import { Box, Button, Typography } from '@mui/material';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useParams } from 'react-router';
 
+//Renders renders 10 posts at a time with infinite scroll
 interface PostCardsProps {
-    getPostsHandler: (string: string) => Promise<Post[]>;
+    getPostsHandler: (sortBy: string, currentPage: number) => Promise<Post[]>;
 }
 export default function PostCards({ getPostsHandler }: PostCardsProps){
     const [posts, setPosts] = useState<Post[]>([]);
     const [isUpvoteButtonDisabled, setIsUpvoteButtonDisabled] = useState(false);
     const [isTimeButtonDisabled, setIsTimeButtonDisabled] = useState(true);
-    // const { page: currentPageParam } = useParams<{ page: string }>()
-    // const [currentPage, setCurrentPage] = 
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
 
-    useEffect(function fetchPosts() {
-        async function fetchData(){
-            try {
-                const postsData = await getPostsHandler('');
-                setPosts(postsData);
-            } catch (error) {
-                console.error('Error fetching posts:', error);
-            } finally {
+    async function fetchData(pageNumber: number){
+        try {
+            console.log("Current page:", pageNumber)
+            const newData = await getPostsHandler('', pageNumber);
 
+            if (!newData || newData.length === 0) {
+                setHasMore(false);
+            } else {
+                console.log(newData);
+                const uniqueNewPosts = newData.filter(
+                    (newPost) => !posts.some((post) => post.postid === newPost.postid)
+                );
+                setPosts((prevPosts) => [...prevPosts, ...uniqueNewPosts]);
+                setPage(pageNumber + 1);
             }
+        } catch (error) {
+            console.error('Error fetching posts:', error);
         }
-        fetchData();
+    }
+
+    useEffect(() => {
+        const fetchInitialData =async () => {
+            await fetchData(page);
+        }
+        fetchInitialData();
     }, []);
+
     const fetchSortedData = async (sortingParameter:string) => {
         try {
             setIsUpvoteButtonDisabled(true);
             setIsTimeButtonDisabled(true);
-            const sortedData = await getPostsHandler(sortingParameter);
+            const sortedData = await getPostsHandler(sortingParameter, 1);
+            if (!sortedData || sortedData.length === 0) {
+                setHasMore(false);
+            } else {
+                console.log(sortedData);
+                const uniqueNewPosts = sortedData.filter(
+                    (newPost) => !posts.some((post) => post.postid === newPost.postid)
+                );
+                setPosts((prevPosts) => [...prevPosts, ...uniqueNewPosts]);
+                setPage(page + 1);
+            }
             setPosts(sortedData);
         } catch(error) {
             setIsUpvoteButtonDisabled(false);
@@ -69,7 +92,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
     }
 
     return (
-        <>
+        <div>
             <Box display={'flex'} justifyContent={'flex-end'} mb={2}>
                 <Button
                     size='small'
@@ -88,9 +111,23 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                     Sort by Time
                 </Button>
             </Box>
+            <InfiniteScroll
+                dataLength={posts.length}
+                next={() => fetchData(page)}
+                hasMore={hasMore}
+                loader={<h4>Loading...</h4>}
+                endMessage={
+                    <p style={{ textAlign: 'center' }}>
+                      <b>Yay! You have seen it all</b>
+                    </p>
+                }
+            >
+            <Box>
             {posts.map((post) => {
                 return <PostCard key = {post.postid} post = {post}/>;
             })}
-        </>
+            </Box>
+            </InfiniteScroll>
+        </div>
     )
 }

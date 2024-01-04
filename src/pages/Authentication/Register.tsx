@@ -45,10 +45,10 @@ export default function Register() {
                 console.log('Registered Successfully');
                 navigate("/login")
             } else if (response.status === 401) {
-                setError('Incorrect password')
+                setError('Registration unauthorised')
                 console.error(error)
             } else {
-                console.error('Failed to send login request');
+                console.error('Failed to send registration request');
             }
         } catch (error) {
             console.error('Error:', error);
@@ -79,6 +79,7 @@ export default function Register() {
                     {...register('username', {
                         required: "Username is required"
                     })}
+                    required
                     fullWidth
                     id="username"
                     name="username"
@@ -96,10 +97,11 @@ export default function Register() {
                     {...register('password', {
                         required: "Password is required",
                         minLength: {
-                            value: 2,
-                            message: "Password must be of value: 8"
+                            value: 8,
+                            message: `Password must be of at least 8 characters`
                         }
                     })}
+                    required
                     fullWidth
                     name="password"
                     type="password"

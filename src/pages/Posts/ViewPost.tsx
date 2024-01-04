@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post } from '../../types/types';
 import GetPostById from '../../APIHandlers/posts/GetPostByIdHandler';
-import PostCard from '../../components/posts/card';
+import PostCard from '../../components/posts/PostCard';
 import Box from '@mui/material/Box';
 import Topbar from '../../components/topbar/topbar';
 import { Stack } from '@mui/material';
-import PostCards from '../../components/posts/cards';
+import PostCards from '../../components/posts/PostCards';
 import Sidebar from '../../components/sidebar/sidebar';
 import { GetCommentsHandler } from '../../APIHandlers/comments/GetCommentsHandler';
 import CommentCards from '../../components/comments/CommentCards';
 
 export default function ViewPost(){
+    //Displayed when clicked into the post, displays the post and the comment cards
     const { postid } = useParams<{postid: string}>();
     //Use params might return undefined, provide definite value of '' to parseInt
     const postIdNumber = parseInt(postid ?? '', 10);

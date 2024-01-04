@@ -3,6 +3,8 @@ import React, { createContext, useState, ReactNode, useContext, useEffect } from
 import { Navigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../config/config';
 
+//AuthContext checks if user is logged in and sets username. 
+//Used at top level of index.html, to be avaliable to all components
 interface AuthContextProps {
   isAuthenticated: boolean;
   AuthUsername: string;

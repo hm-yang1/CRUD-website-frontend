@@ -17,13 +17,13 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AddCommentRoundedIcon from '@mui/icons-material/AddCommentRounded';
 import { Box, Grid } from '@mui/material';
-import { DeletePostConfirmation } from '../../pages/Posts/DeletePost';
+import { DeletePostConfirmation } from './DeletePost';
 import { CreateComment } from '../comments/CreateComment';
 import UpvoteButton from '../upvotes/UpvoteButton';
 import GetPostUpvoteHandler from '../../APIHandlers/upvotes/GetPostUpvoteHandler';
 
-//Get post
 function ClickableBox({ onClick, children }: { onClick: () => void; children: ReactNode }): React.ReactElement {
+    //Not used
     return (
       <ButtonBase
         focusRipple
@@ -39,7 +39,9 @@ interface PostCardProps {
     post: Post;
 }
 
+
 export default function PostCard({ post } :PostCardProps) {
+    //Renders 1 post
     const naviage = useNavigate();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const { AuthUsername } = UseAuth();
@@ -66,25 +68,16 @@ export default function PostCard({ post } :PostCardProps) {
         setIsDeleteConfirmationVisible(true);
         return;
     };
-    const handleDeleteConfirm = () => {
-        setIsDeleteConfirmationVisible(false);
-        return;
-    }
+
     const handleDeleteCancel = () => {
         setIsDeleteConfirmationVisible(false);
     }
-    
-    const handleClick = () => {
-        alert("HAHAHA")
-        return;
-    };
-    const handleUpvote = () => {
-        alert("HAHAHA")
-        return;
-    };
     const handleComment = () => {
         setCommentBoxVisibility(!isCommentBoxVisible);
     };
+    const handleTagClick = (tag: string) => {
+        naviage(`/filtered-posts?tags=${tag}`)
+    }    
     return (
         <Box
             marginBlock={1}
@@ -127,7 +120,11 @@ export default function PostCard({ post } :PostCardProps) {
             />
             <>
                 {post.tags.map((tag, index) => (
-                    <Button key={index} variant="outlined" style={{ fontSize: '0.7rem', marginRight: 8 }}>
+                    <Button 
+                        onClick={() => handleTagClick(tag)}
+                        key={index} 
+                        variant="outlined" 
+                        style={{ fontSize: '0.7rem', marginRight: 8 }}>
                     {tag}
                     </Button>
                 ))}

@@ -11,7 +11,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { IconButton, Typography } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 
-
+//For mobile view of topbar, currently work in progress
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu

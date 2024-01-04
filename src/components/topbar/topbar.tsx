@@ -14,34 +14,14 @@ import { useNavigate } from 'react-router';
 import CustomizedMenus from './CustomizedMenu';
 import { UseAuth } from '../../pages/Authentication/AuthContext';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import SearchBar from '../../pages/Posts/Searched/SearchBar';
 
 const StyledToolbar = styled(Toolbar) ({
   display:"flex",
   justifyContent:"space-between"
 })
 
-const Search = styled('div')(({ theme }) => ({
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  padding:"0 10px",
-  borderRadius: theme.shape.borderRadius,
-  width: "40%"
-}));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
 
 const IconsContainter = styled(Box)(({ theme }) => ({
   display:"none",
@@ -58,12 +38,6 @@ const MenuContainer = styled(Box)(({ theme }) => ({
     display:"none"
   }
 }));
-
-const StyledIconButton = styled(IconButton)(({ theme }) => ({
-  color:"white",
-  display:"none",
-}));
-
 
 export default function Topbar() {
   const { isAuthenticated } = UseAuth();
@@ -91,9 +65,14 @@ export default function Topbar() {
           </Typography>        
           <HomeIcon sx={{color:"white"}}/>
         </IconButton>
-        <Search>
-          <StyledInputBase placeholder='Search...'/>
-        </Search>
+        <Box
+          display={'flex'}
+          justifyContent={'center'}
+          alignContent={'center'}
+          width={'60%'}
+        >
+          <SearchBar/>
+        </Box>
         <IconsContainter>
           <IconButton sx ={{color:"white"}} onClick={handleCreate}>
             <AddBoxIcon/>

@@ -18,7 +18,7 @@ import { LoginRequest } from '../../types/types';
 import { API_BASE_URL } from '../../config/config';
 import { DefaultTheme } from '../../App';
 import { createContext, useContext, useState } from 'react';
-import { AuthContext, UseAuth } from './AuthContext';
+import { UseAuth } from './AuthContext';
 
 export default function Login() {
     const navigate = useNavigate();

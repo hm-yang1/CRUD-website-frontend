@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { GetAllPostsHandler } from '../../APIHandlers/posts/GetAllPostHandler';
 import { Post } from '../../types/types';
-import  PostCard from './card'
+import  PostCard from './PostCard'
 import { Box, Button, FormControlLabel, Stack, Switch, Typography } from '@mui/material';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useParams } from 'react-router';
-//Not used. Implemented sorting in cards
+//Not used. Implemented sorting directly in postCards
 export function SortingSwitch(){
     const [checked, setChecked] = React.useState(false);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Post, Tag, PostRequest } from '../../types/types';
 import GetPostById from '../../APIHandlers/posts/GetPostByIdHandler';
-import { UseAuth } from '../Authentication/AuthContext';
+import { UseAuth } from '../../pages/Authentication/AuthContext';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import DeletePostHandler from '../../APIHandlers/posts/DeletePostHandler';
 
@@ -16,6 +16,7 @@ interface DeletePostConfirmationProps {
 }
 
 export function DeletePostConfirmation(props: DeletePostConfirmationProps) {
+  //Dialog shown when user clicks delete button on PostCard
   const { postID, postTitle, isOpen, onCancel } = props;
   const navigate = useNavigate();
   const handleDeleteConfirm = async (postId: number) => {

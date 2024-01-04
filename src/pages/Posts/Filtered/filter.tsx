@@ -1,25 +1,15 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import ButtonBase from '@mui/material/ButtonBase';
-import { ReactNode, useEffect, useState } from 'react';
-import { Post, Tag } from '../../types/types';
+import {useEffect, useState } from 'react';
+import { Tag } from '../../../types/types';
 import Button from '@mui/material/Button';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import { UseAuth } from '../../pages/Authentication/AuthContext';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import AddCommentRoundedIcon from '@mui/icons-material/AddCommentRounded';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Box, Grid, Paper } from '@mui/material';
-import GetAllTagsHandler from '../../APIHandlers/tags/GetAllTagsHandler';
+import GetAllTagsHandler from '../../../APIHandlers/tags/GetAllTagsHandler';
 
 function TagButtonGrid(){
+  //Tags filtering group in the side bar, handles getting the tags, and setting query params
   const navigate = useNavigate();
   const location = useLocation();
   const [availableTags, setAvaliableTags] = useState<Tag[]>([])
@@ -50,6 +40,11 @@ function TagButtonGrid(){
 
   function handleSubmitClick(): void {
       console.log(`Submitted tags: ${tagNames}`);
+      if(tagNames.length <= 0) {
+        navigate('/');
+        window.location.reload();
+        return;
+      }
       const tagsString = tagNames.join('&');
       const queryParams = new URLSearchParams(location.search);
       queryParams.set('tags', tagsString);

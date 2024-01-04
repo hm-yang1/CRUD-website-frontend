@@ -6,14 +6,13 @@ import { RequireAuth, UseAuth } from './pages/Authentication/AuthContext';
 import EditPost from './pages/Posts/EditPost';
 import Home from './pages/Home/Home';
 import Login from './pages/Authentication/LoginPage';
-import Register from './pages/Register/Register';
+import Register from './pages/Authentication/Register';
 import ViewPost from './pages/Posts/ViewPost';
-import FilteredPosts from './pages/Filtered/FilteredPosts';
+import FilteredPosts from './pages/Posts/Filtered/FilteredPosts';
+import SearchedPosts from './pages/Posts/Searched/SearchedPosts';
 
 export const DefaultTheme = createTheme();
 function App() {
-  const { isAuthenticated } = UseAuth();
-  console.log(isAuthenticated);
   return (
     <Router>
       <Routes>
@@ -23,6 +22,7 @@ function App() {
         <Route path="/register" Component={Register} />
         <Route path="/posts/:postid" Component={ViewPost}/>
         <Route path="/filtered-posts" Component={FilteredPosts}/>
+        <Route path="/searched-posts" Component={SearchedPosts}/>
         {/* Private routes that require authentication */}
         <Route 
           path="/posts/create"

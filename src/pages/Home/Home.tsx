@@ -18,12 +18,13 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Topbar  from '../../components/topbar/topbar'
 import Sidebar from '../../components/sidebar/sidebar';
 import { Button, FormControlLabel, Stack, Switch } from '@mui/material';
-import PostCards from '../../components/posts/cards';
+import PostCards from '../../components/posts/PostCards';
 import { GetAllPostsHandler } from '../../APIHandlers/posts/GetAllPostHandler';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 
 export default function Home() {
+    //Default page that loads postcards, topbar and sidebar
     return (
         <Box>
             <Topbar />
@@ -40,7 +41,7 @@ export default function Home() {
                     position={'relative'}
                     zIndex={3}
                 >
-                    <PostCards getPostsHandler={(string:string) => GetAllPostsHandler(string)}/>
+                    <PostCards getPostsHandler={(sortBy:string, currentPage: number) => GetAllPostsHandler(sortBy, currentPage)}/>
                 </Box>
                 <Box
                     position={{ xs: 'static', md: 'sticky' }} 
