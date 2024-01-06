@@ -49,6 +49,7 @@ export default function SearchBar() {
         const queryParams = new URLSearchParams(location.search);
         queryParams.set('query', query);
         navigate(`/searched-posts?${queryParams.toString()}`)
+        window.location.reload();
     };
 
     return (
