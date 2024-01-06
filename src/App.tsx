@@ -16,13 +16,13 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" Component={Home} />
+        <Route path="/" element={<Home/>} />
         {/* <Route path="/posts" Component={}/> */}
-        <Route path="/login" Component={Login} />
-        <Route path="/register" Component={Register} />
-        <Route path="/posts/:postid" Component={ViewPost}/>
-        <Route path="/filtered-posts" Component={FilteredPosts}/>
-        <Route path="/searched-posts" Component={SearchedPosts}/>
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+        <Route path="/posts/:postid" element={<ViewPost/>}/>
+        <Route path="/filtered-posts" element={<FilteredPosts/>}/>
+        <Route path="/searched-posts" element={<SearchedPosts/>}/>
         {/* Private routes that require authentication */}
         <Route 
           path="/posts/create"
