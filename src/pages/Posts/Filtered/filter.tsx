@@ -42,14 +42,12 @@ function TagButtonGrid(){
       console.log(`Submitted tags: ${tagNames}`);
       if(tagNames.length <= 0) {
         navigate('/');
-        window.location.reload();
         return;
       }
       const tagsString = tagNames.join('&');
       const queryParams = new URLSearchParams(location.search);
       queryParams.set('tags', tagsString);
       navigate(`/filtered-posts?${queryParams.toString()}`);
-      window.location.reload();
   }
   return (
     <Box 
