@@ -29,6 +29,9 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                 );
                 setPosts((prevPosts) => [...prevPosts, ...uniqueNewPosts]);
                 setPage(pageNumber + 1);
+                if (uniqueNewPosts.length < 5) {
+                    setHasMore(false);
+                }
             }
         } catch (error) {
             console.error('Error fetching posts:', error);
