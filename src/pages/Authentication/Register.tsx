@@ -47,8 +47,12 @@ export default function Register() {
             } else if (response.status === 401) {
                 setError('Registration unauthorised')
                 console.error(error)
+            } else if (response.status === 409){
+                setError("Username taken")
+                console.error(error)
             } else {
-                console.error('Failed to send registration request');
+                setError("Error registering, try again later :(")
+                console.error(error)
             }
         } catch (error) {
             console.error('Error:', error);
