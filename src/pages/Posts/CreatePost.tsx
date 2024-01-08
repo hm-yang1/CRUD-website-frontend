@@ -17,6 +17,8 @@ import { CreateComment } from '../../components/comments/CreateComment';
 export default function CreatePost(){
     const navigate = useNavigate();
     const {isAuthenticated, AuthUsername} = UseAuth();
+    const [titleError, setTitleError] = useState('');
+    const [descriptionError, setDescriptionError] = useState('');
     const [postData, setPostData] = useState<PostRequest>({
         username: AuthUsername,
         tags: [] as string[],
@@ -38,6 +40,15 @@ export default function CreatePost(){
     }
 
     async function handleCreatePost(){
+        if (!postData.title.trim()) {
+            setTitleError('Title cannot be empty!');
+            return;
+        }
+      
+        if (!postData.description.trim()) {
+            setDescriptionError('Description cannot be empty!');
+            return;
+        }
         try{
             const createdPost = await CreatePostHandler(postData);
             console.log('Created Post:', createdPost)
@@ -47,7 +58,7 @@ export default function CreatePost(){
         }
     }
     if (!isAuthenticated) {
-        redirect('/login');
+        navigate('/login');
     }
     return (
         <>
@@ -63,8 +74,12 @@ export default function CreatePost(){
                     fullWidth
                     margin='normal'
                     value={postData.title}
-                    onChange={(e) => setPostData({...postData, title: e.target.value})}
+                    onChange={(e) => {
+                        setPostData({...postData, title: e.target.value});
+                        setTitleError('');
+                    }}
                 />
+                {titleError && <p className='text-red-500'>{titleError}</p>}
                 <Box mt={2}>
                     <Typography variant='subtitle1'>Tags:</Typography>
                     <ButtonGroup>
@@ -86,8 +101,12 @@ export default function CreatePost(){
                     rows = {4}
                     margin='normal'
                     value={postData.description}
-                    onChange={(e) => setPostData({...postData, description:e.target.value})}
+                    onChange={(e) => {
+                        setPostData({...postData, description:e.target.value});
+                        setDescriptionError('');
+                    }}
                 />
+                {descriptionError && <p className='text-red-500'>{descriptionError}</p>}
                 <Box mt={3}>
                     <Button
                         variant='contained'
