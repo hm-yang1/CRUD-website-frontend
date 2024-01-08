@@ -8,7 +8,7 @@ export const DefaultTheme = createTheme({
     palette: {
         mode: 'light',
         primary: {
-        main: '#00E2FA',
+        main: '#164DEB',
         },
         secondary: {
         main: '#00FAC0',
