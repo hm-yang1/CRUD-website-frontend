@@ -83,10 +83,10 @@ function TagButtonGrid(){
 
       {isEditing && (
         <Box display={'flex'} style={{ padding: 16, marginTop: 16 }} borderRadius={4} bgcolor={'white'} justifyContent={'space-evenly'}>
-          <Button color="secondary" onClick={handleSubmitClick}>
+          <Button color="primary" onClick={handleSubmitClick}>
             Submit
           </Button>
-          <Button color="secondary" onClick={handleCancelClick}>
+          <Button color="primary" onClick={handleCancelClick}>
             Cancel
           </Button>
         </Box>

@@ -18,6 +18,7 @@ import SearchBar from '../../pages/Posts/Searched/SearchBar';
 
 const StyledToolbar = styled(Toolbar) ({
   display:"flex",
+  position: "sticky",
   justifyContent:"space-between",
 })
 
@@ -54,6 +55,7 @@ export default function Topbar() {
   return (
     <Box
       marginBottom={1}
+      sx={{ flexGrow: 1 }}
     >
     <AppBar 
       position = "sticky"
