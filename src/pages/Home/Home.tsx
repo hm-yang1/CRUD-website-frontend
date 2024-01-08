@@ -27,7 +27,7 @@ export default function Home() {
     //Default page that loads postcards, topbar and sidebar
     return (
         <Box>
-            <Topbar />
+            <Topbar/>
             <Stack 
                 direction="row" 
                 spacing={2} 

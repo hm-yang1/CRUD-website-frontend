@@ -18,7 +18,6 @@ import SearchBar from '../../pages/Posts/Searched/SearchBar';
 
 const StyledToolbar = styled(Toolbar) ({
   display:"flex",
-  position: "sticky",
   justifyContent:"space-between",
 })
 
@@ -55,15 +54,15 @@ export default function Topbar() {
   return (
     <Box
       marginBottom={1}
-      sx={{ flexGrow: 1 }}
+      sx={{ flexGrow: 1, position: 'sticky' }}
     >
     <AppBar 
-      position = "sticky"
+      position='sticky'
       color='primary'
     >
       <StyledToolbar>
         <IconButton onClick={handleHome}>
-          <Typography color='text.primary' variant='h6' sx={{display:{xs: "none", sm:"block"}}}>
+          <Typography color='black' variant='h6' sx={{display:{xs: "none", sm:"block"}}}>
             GoodForumName
           </Typography>        
           <HomeIcon/>
@@ -83,7 +82,7 @@ export default function Topbar() {
           {!isAuthenticated ? (
               <IconButton href='/login'>
                 <LoginIcon/>
-                <Typography variant='body1' fontStyle='arial' color={'white'}>Login</Typography>
+                <Typography variant='body1' fontStyle='arial'>Login</Typography>
               </IconButton>
             ) : (
               <>

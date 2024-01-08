@@ -19,17 +19,31 @@ export default function SideBar() {
   }
   return (
     <Box 
-      style={{ paddingTop:70, position: 'sticky', top:0}}
+      style={{ paddingTop:30, position: 'sticky', top:0}}
       flex={1} 
       p={2} 
       sx={{ display: { xs: "none", sm: "block" } }}
     >
-        <Button variant='contained' onClick={handleCreate} color='primary'>
+      <Box
+        display={'flex'}
+        justifyContent={'space-evenly'}
+        alignItems={'left'}
+        position={'sticky'}
+        mb={1}
+      >
+        <Button 
+          sx={{borderRadius: 8}}
+          variant='contained' 
+          size='large'
+          onClick={handleCreate} 
+          color='primary'
+        >
           <Typography>
             Create Post
           </Typography>
         </Button>
-        <TagButtonGrid/>
+      </Box>
+      <TagButtonGrid/>
     </Box>
   );
 }
