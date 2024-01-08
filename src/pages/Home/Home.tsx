@@ -32,14 +32,12 @@ export default function Home() {
                 direction="row" 
                 spacing={2} 
                 justifyContent="space-between"
-                zIndex={0}
             >
                 <Box 
                     flex={4} 
                     p={{ xs: 0, md: 2 }} 
                     bgcolor="white"
                     position={'relative'}
-                    zIndex={3}
                 >
                     <PostCards getPostsHandler={(sortBy:string, currentPage: number) => GetAllPostsHandler(sortBy, currentPage)}/>
                 </Box>
@@ -47,10 +45,9 @@ export default function Home() {
                     position={{ xs: 'static', md: 'sticky' }} 
                     top={{ xs: 'auto', md: 0 }}
                     flex={1}
-                    zIndex={2}
                     minHeight={'100vh'}
                 >
-                <Sidebar/>
+                    <Sidebar/>
                 </Box>
             </Stack>
         </Box>
