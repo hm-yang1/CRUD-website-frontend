@@ -107,7 +107,12 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                     onClick={handleUpvoteSort}
                     disabled={isUpvoteButtonDisabled}
                 >
-                    Sort by Upvotes
+                    <Typography
+                        variant='h6'
+                        color={'white'}
+                    >
+                        Sort by Upvotes
+                    </Typography>
                 </Button>
                 <Button
                     size='small'
@@ -115,7 +120,12 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                     onClick={handleTimeSort}
                     disabled={isTimeButtonDisabled}
                 >
-                    Sort by Time
+                    <Typography
+                        variant='h6'
+                        color={'white'}
+                    >
+                        Sort by Time
+                    </Typography>
                 </Button>
             </Box>
             <InfiniteScroll

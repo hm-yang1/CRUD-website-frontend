@@ -5,7 +5,7 @@ import { cyan, deepPurple, lightBlue, orange } from '@mui/material/colors';
 export const DefaultTheme = createTheme({
     palette: {
         mode: 'light',
-        primary: deepPurple,
+        primary: cyan,
         secondary: orange,
     },
     typography: {
