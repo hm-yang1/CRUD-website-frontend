@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { LoginRequest } from '../../types/types';
 import { API_BASE_URL } from '../../config/config';
-import { DefaultTheme } from '../../App';
+import { DefaultTheme } from '../../styles/theme';
 import { createContext, useContext, useState } from 'react';
 import { UseAuth } from './AuthContext';
 import { Visibility, VisibilityOff } from '@mui/icons-material';

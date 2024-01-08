@@ -21,8 +21,6 @@ const StyledToolbar = styled(Toolbar) ({
   justifyContent:"space-between"
 })
 
-
-
 const IconsContainter = styled(Box)(({ theme }) => ({
   display:"none",
   gap:"5px",

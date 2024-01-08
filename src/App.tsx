@@ -1,6 +1,5 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { createTheme } from '@mui/material';
 import CreatePost from './pages/Posts/CreatePost'
 import { RequireAuth, UseAuth } from './pages/Authentication/AuthContext';
 import EditPost from './pages/Posts/EditPost';
@@ -10,38 +9,43 @@ import Register from './pages/Authentication/Register';
 import ViewPost from './pages/Posts/ViewPost';
 import FilteredPosts from './pages/Posts/Filtered/FilteredPosts';
 import SearchedPosts from './pages/Posts/Searched/SearchedPosts';
+import { DefaultTheme } from './styles/theme';
+import { ThemeProvider } from '@emotion/react';
+import { CssBaseline } from '@mui/material';
 
-export const DefaultTheme = createTheme();
+// export const DefaultTheme = createTheme();
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        {/* <Route path="/posts" Component={}/> */}
-        <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/posts/:postid" element={<ViewPost/>}/>
-        <Route path="/filtered-posts" element={<FilteredPosts/>}/>
-        <Route path="/searched-posts" element={<SearchedPosts/>}/>
-        {/* Private routes that require authentication */}
-        <Route 
-          path="/posts/create"
-          element ={
-            <RequireAuth redirectTo='/login'>
-              <CreatePost/>
-            </RequireAuth>
-          }
-        />
-        <Route 
-          path="/posts/edit/:postid"
-          element ={
-            <RequireAuth redirectTo='/login'>
-              <EditPost/>
-            </RequireAuth>
-          }
-        />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={DefaultTheme}>
+      <CssBaseline/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/posts/:postid" element={<ViewPost/>}/>
+          <Route path="/filtered-posts" element={<FilteredPosts/>}/>
+          <Route path="/searched-posts" element={<SearchedPosts/>}/>
+          {/* Private routes that require authentication */}
+          <Route 
+            path="/posts/create"
+            element ={
+              <RequireAuth redirectTo='/login'>
+                <CreatePost/>
+              </RequireAuth>
+            }
+          />
+          <Route 
+            path="/posts/edit/:postid"
+            element ={
+              <RequireAuth redirectTo='/login'>
+                <EditPost/>
+              </RequireAuth>
+            }
+          />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
