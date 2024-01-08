@@ -8,10 +8,10 @@ export const DefaultTheme = createTheme({
     palette: {
         mode: 'light',
         primary: {
-        main: '#9057fa',
+        main: '#00E2FA',
         },
         secondary: {
-        main: '#8a70ba',
+        main: '#00FAC0',
         },
         info: {
         main: '#6e687a',
