@@ -59,14 +59,14 @@ export default function Topbar() {
     >
     <AppBar 
       position = "sticky"
-      sx={{backgroundColor: '#C0C0C0'}}
+      color='primary'
     >
       <StyledToolbar>
         <IconButton onClick={handleHome}>
-          <Typography variant='h6' sx={{color:'white', display:{xs: "none", sm:"block"}}}>
+          <Typography color='text.primary' variant='h6' sx={{display:{xs: "none", sm:"block"}}}>
             GoodForumName
           </Typography>        
-          <HomeIcon sx={{color:"white"}}/>
+          <HomeIcon/>
         </IconButton>
         <Box
           display={'flex'}
@@ -77,18 +77,18 @@ export default function Topbar() {
           <SearchBar/>
         </Box>
         <IconsContainter>
-          <IconButton sx ={{color:"white"}} onClick={handleCreate}>
+          <IconButton onClick={handleCreate}>
             <AddBoxIcon/>
           </IconButton>
           {!isAuthenticated ? (
               <IconButton href='/login'>
-                <LoginIcon sx ={{color:"white"}}/>
+                <LoginIcon/>
                 <Typography variant='body1' fontStyle='arial' color={'white'}>Login</Typography>
               </IconButton>
             ) : (
               <>
               <IconButton>
-                <AccountCircle sx ={{color:"white"}}/>
+                <AccountCircle/>
               </IconButton>
               <Logout/>
               </>

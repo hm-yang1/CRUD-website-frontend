@@ -1,17 +1,22 @@
 import * as React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
-import CommentIcon from '@mui/icons-material/Comment';
 import Box from '@mui/material/Box';
 import TagButtonGrid from '../../pages/Posts/Filtered/filter';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import { UseAuth } from '../../pages/Authentication/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { Button, Typography } from '@mui/material';
+
 
 export default function SideBar() {
+  const { isAuthenticated } = UseAuth();
+  const navigate = useNavigate();
 
+  function handleCreate(){
+    isAuthenticated
+      ? navigate('/posts/create')
+      : navigate('/login')
+  }
   return (
     <Box 
       style={{ paddingTop:70, position: 'sticky', top:0}}
@@ -19,6 +24,11 @@ export default function SideBar() {
       p={2} 
       sx={{ display: { xs: "none", sm: "block" } }}
     >
+        <Button variant='contained' onClick={handleCreate} color='primary'>
+          <Typography>
+            Create Post
+          </Typography>
+        </Button>
         <TagButtonGrid/>
     </Box>
   );

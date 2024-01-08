@@ -99,7 +99,6 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
             <Box 
                 display={'flex'} 
                 justifyContent={'flex-end'} 
-                mb={1}
             >
                 <Button
                     size='small'
@@ -109,7 +108,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                 >
                     <Typography
                         variant='subtitle2'
-                        color={'white'}
+                        color={'text.secondary'}
                         style={{textTransform: 'none'}}
                     >
                         Sort by Upvotes
@@ -123,7 +122,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                 >
                     <Typography
                         variant='subtitle2'
-                        color={'white'}
+                        color={'text.secondary'}
                         style={{textTransform: 'none'}}
                     >
                         Sort by Time

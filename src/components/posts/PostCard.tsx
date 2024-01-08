@@ -95,7 +95,7 @@ export default function PostCard({ post } :PostCardProps) {
                 <Button component={Link} to={`/posts/${post.postid}`}>
                     <Typography
                         align="left"
-                        variant="h6"
+                        variant="subtitle1"
                         color="text.primary"
                         style={{textTransform: 'none'}}
                     >
