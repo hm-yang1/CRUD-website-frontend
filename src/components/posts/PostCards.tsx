@@ -110,6 +110,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                     <Typography
                         variant='subtitle2'
                         color={'white'}
+                        style={{textTransform: 'none'}}
                     >
                         Sort by Upvotes
                     </Typography>
@@ -123,6 +124,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                     <Typography
                         variant='subtitle2'
                         color={'white'}
+                        style={{textTransform: 'none'}}
                     >
                         Sort by Time
                     </Typography>
