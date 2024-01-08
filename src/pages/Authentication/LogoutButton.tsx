@@ -47,8 +47,8 @@ export default function LogoutButton(){
             size='large'
             onClick={onSubmit}
         >
-            <LogoutIcon sx ={{color:"white"}} />
-            <Typography variant='body1' color='white' fontStyle='arial'>
+            <LogoutIcon/>
+            <Typography variant='body1' fontStyle='arial'>
                 Logout
             </Typography>
         </IconButton>
