@@ -59,7 +59,7 @@ export default function Topbar() {
     >
     <AppBar 
       position = "sticky"
-      sx={{backgroundColor: '#636363'}}
+      sx={{backgroundColor: '#C0C0C0'}}
     >
       <StyledToolbar>
         <IconButton onClick={handleHome}>
