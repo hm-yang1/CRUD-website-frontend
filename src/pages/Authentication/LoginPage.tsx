@@ -19,11 +19,14 @@ import { API_BASE_URL } from '../../config/config';
 import { DefaultTheme } from '../../App';
 import { createContext, useContext, useState } from 'react';
 import { UseAuth } from './AuthContext';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { InputAdornment, IconButton } from '@mui/material';
 
 export default function Login() {
     const navigate = useNavigate();
     const { isAuthenticated, handleLogin } = UseAuth();
     const [error, setError] = React.useState<string | null>(null);
+    const [showPassword, setShowPassword] = useState(false);
     const {
         register,
         handleSubmit,
@@ -119,9 +122,22 @@ export default function Login() {
                 fullWidth
                 name="password"
                 label="Password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 id="password"
                 autoComplete="current-password"
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <IconButton
+                                onClick={() => setShowPassword(!showPassword)}
+                                onMouseDown={(e) => e.preventDefault()}
+                                onMouseUp={(e) => e.preventDefault()}//idk why but needed to prevent cursor from jumping to front
+                            >
+                                {showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                        </InputAdornment>
+                    ),
+                }}
                 />
                 {errors.password && (
                     <p className='text-red-500'>{`${errors.password.message}`}</p>
@@ -138,7 +154,7 @@ export default function Login() {
                 <Grid container>
                 <Grid item xs>
                     <Link href="/" variant="body2">
-                    Go Home?
+                    Go Home
                     </Link>
                 </Grid>
                 <Grid item>

@@ -15,12 +15,15 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from "react-router-dom";
+import { IconButton, InputAdornment, TextField } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 const defaultTheme = createTheme();
 
 export default function Register() {
     const navigate = useNavigate();
     const [error, setError] = useState<string | null>(null);
+    const [showPassword, setShowPassword] = useState(false);
     const {
         register,
         handleSubmit,
@@ -79,7 +82,7 @@ export default function Register() {
             <Box component="form" noValidate onSubmit={handleSubmit(onSubmit)} sx={{ mt: 3 }}>
                 <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <Input
+                    <TextField
                     {...register('username', {
                         required: "Username is required"
                     })}
@@ -87,7 +90,7 @@ export default function Register() {
                     fullWidth
                     id="username"
                     name="username"
-                    placeholder='Username'
+                    label="Username"
                     autoComplete="username"
                     autoFocus
                     />
@@ -97,7 +100,7 @@ export default function Register() {
                     )}
                 </Grid>
                 <Grid item xs={12}>
-                    <Input
+                    <TextField
                     {...register('password', {
                         required: "Password is required",
                         minLength: {
@@ -108,9 +111,22 @@ export default function Register() {
                     required
                     fullWidth
                     name="password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     id="password"
-                    placeholder="Password"
+                    label="Password"
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    onMouseDown={(e) => e.preventDefault()}
+                                    onMouseUp={(e) => e.preventDefault()}//idk why but needed to prevent cursor from jumping to front
+                                >
+                                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }}
                     />
                     {errors.password && (
                         <p className='text-red-500'>{`${errors.password.message}`}</p>
@@ -129,7 +145,7 @@ export default function Register() {
                 <Grid container justifyContent="flex-end">
                 <Grid item xs>
                     <Link href="/" variant="body2">
-                    Go Home?
+                    Go Home
                     </Link>
                 </Grid>
                 <Grid item>
