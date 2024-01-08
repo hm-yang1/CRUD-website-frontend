@@ -17,11 +17,13 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from "react-router-dom";
 import { IconButton, InputAdornment, TextField } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { UseAuth } from './AuthContext';
 
 const defaultTheme = createTheme();
 
 export default function Register() {
     const navigate = useNavigate();
+    const { isAuthenticated, handleLogin } = UseAuth();
     const [error, setError] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
     const {
@@ -32,6 +34,10 @@ export default function Register() {
         getValues,
     } = useForm<RegisterRequest>();
 
+    if (isAuthenticated) {
+        navigate('/');
+    }
+    
     async function onSubmit(registerRequest: RegisterRequest) {
         const jsonData = JSON.stringify(registerRequest);
         console.log(jsonData)

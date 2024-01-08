@@ -10,7 +10,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import { ReactNode, useEffect, useState } from 'react';
 import { Post } from '../../types/types';
 import Button from '@mui/material/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { UseAuth } from '../../pages/Authentication/AuthContext';
 import MenuItem from '@mui/material/MenuItem';
@@ -43,6 +43,7 @@ interface PostCardProps {
 export default function PostCard({ post } :PostCardProps) {
     //Renders 1 post
     const naviage = useNavigate();
+    const location = useLocation();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const { AuthUsername } = UseAuth();
     const isPostOwner = AuthUsername === post.username;
@@ -50,6 +51,7 @@ export default function PostCard({ post } :PostCardProps) {
     const [isDeleteConfirmationVisible, setIsDeleteConfirmationVisible] = useState(false);
     const [isCommentBoxVisible, setCommentBoxVisibility] = useState(false);
     const [isUpvoted, setIsUpvoted] = useState(false);
+    const isViewPage = location.pathname.startsWith('/posts/');
 
     const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -131,8 +133,8 @@ export default function PostCard({ post } :PostCardProps) {
             </>
         </CardContent>
             <CardContent>
-                <Typography margin='thick' align="left" variant="body1" color="text.secondary">
-                    {post.description}
+                <Typography margin='medium' align="left" variant="body1" color="text.secondary">
+                    {isViewPage ? post.description : `${post.description.substring(0,100)}...`}
                 </Typography>
             </CardContent>
         <CardContent>
