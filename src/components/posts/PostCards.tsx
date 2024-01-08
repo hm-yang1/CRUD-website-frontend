@@ -96,7 +96,11 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
 
     return (
         <div>
-            <Box display={'flex'} justifyContent={'flex-end'} mb={2}>
+            <Box 
+                display={'flex'} 
+                justifyContent={'flex-end'} 
+                mb={1}
+            >
                 <Button
                     size='small'
                     variant='contained'

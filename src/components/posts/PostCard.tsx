@@ -93,7 +93,12 @@ export default function PostCard({ post } :PostCardProps) {
             sx={{backgroundColor: '#f0f0f0' }}
             title={
                 <Button component={Link} to={`/posts/${post.postid}`} color="inherit" style={{ textDecoration: 'none' }}>
-                  {post.title}
+                    <Typography
+                        variant='subtitle1'
+                        color={'text.primary'}
+                    >
+                        {post.title}
+                    </Typography>
                 </Button>
               }
             subheader={`By: ${post.username} | ${datetime}`}
@@ -145,7 +150,7 @@ export default function PostCard({ post } :PostCardProps) {
                     isPost={true}
                 />
                 <Typography variant='body2' color="text.secondary">
-                        Upvotes: {post.upvote}
+                    Upvotes: {post.upvote}
                 </Typography>
                 </Grid>
                 <Grid item>
