@@ -54,8 +54,11 @@ export default function Topbar() {
   return (
     <Box
       marginBottom={1}
-      >
-    <AppBar position = "sticky">
+    >
+    <AppBar 
+      position = "sticky"
+      sx={{backgroundColor: '#636363'}}
+    >
       <StyledToolbar>
         <IconButton onClick={handleHome}>
           <Typography variant='h6' sx={{color:'white', display:{xs: "none", sm:"block"}}}>

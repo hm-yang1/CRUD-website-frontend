@@ -21,6 +21,6 @@ export const DefaultTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Helvetica, Arial, Roboto, sans-serif', // Your custom default font
+        fontFamily: 'Roboto, sans-serif', // Your custom default font
     },
 });

@@ -92,11 +92,12 @@ export default function PostCard({ post } :PostCardProps) {
         <CardHeader
             sx={{backgroundColor: '#f0f0f0' }}
             title={
-                <Button component={Link} to={`/posts/${post.postid}`} color="inherit">
+                <Button component={Link} to={`/posts/${post.postid}`}>
                     <Typography
                         align="left"
                         variant="subtitle1"
                         color="text.primary"
+                        style={{textTransform: 'none'}}
                     >
                         {post.title}
                     </Typography>

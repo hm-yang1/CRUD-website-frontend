@@ -72,7 +72,7 @@ function TagButtonGrid(){
           <Grid item key={tag.name}>
             <Button
               variant={tagNames.includes(tag.name) ? 'contained' : 'outlined'}
-              color='secondary'
+              color='primary'
               onClick={() => handleTagClick(tag)}
             >
               {tag.name}
