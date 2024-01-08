@@ -16,6 +16,13 @@ import { UseAuth } from '../../pages/Authentication/AuthContext';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import SearchBar from '../../pages/Posts/Searched/SearchBar';
 
+const TopbarContainer = styled(Box)({
+  position: 'fixed',
+  width: '100%',
+  top: 0,
+  zIndex: 1000,
+});
+
 const StyledToolbar = styled(Toolbar) ({
   display:"flex",
   justifyContent:"space-between",
@@ -50,15 +57,15 @@ export default function Topbar() {
       ? navigate('/posts/create')
       : navigate('/login')
   }
-
+  
   return (
-    <Box
-      style={{position: 'sticky'}}
+    <TopbarContainer
       marginBottom={1}
     >
     <AppBar 
       position='sticky'
       color='primary'
+      style={{ top: 0, zIndex: 100 }}
     >
       <StyledToolbar>
         <IconButton onClick={handleHome}>
@@ -99,6 +106,6 @@ export default function Topbar() {
         </MenuContainer>
       </StyledToolbar>
     </AppBar>
-    </Box>
+    </TopbarContainer>
   )
 }

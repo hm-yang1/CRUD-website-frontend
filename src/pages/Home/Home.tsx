@@ -29,11 +29,12 @@ export default function Home() {
         <Box>
             <Topbar/>
             <Stack 
+                marginTop={'60px'}
                 direction="row" 
                 spacing={2} 
                 justifyContent="space-between"
             >
-                <Box 
+                <Box
                     flex={4} 
                     p={{ xs: 0, md: 2 }} 
                     bgcolor="white"

@@ -16,7 +16,7 @@ export default function SearchedPosts() {
     return (
         <Box>
             <Topbar />
-            <Stack direction="row" spacing={2} justifyContent="space-between">
+            <Stack marginTop={'60px'} direction="row" spacing={2} justifyContent="space-between">
                 <Box flex={4} p={{ xs: 0, md: 2 }} bgcolor="white">
                     <PostCards getPostsHandler={(sortBy: string, currentPage: number) => GetSearchedPostsHandler(query, sortBy, currentPage)}/>
                 </Box>
