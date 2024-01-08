@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import HomeIcon from '@mui/icons-material/Home';
+import ImportantDevicesIcon from '@mui/icons-material/ImportantDevices';
 import LoginIcon from '@mui/icons-material/Login';
 import Logout from '../../pages/Authentication/LogoutButton';
 import { useNavigate } from 'react-router';
@@ -53,8 +53,8 @@ export default function Topbar() {
 
   return (
     <Box
+      style={{position: 'sticky'}}
       marginBottom={1}
-      sx={{ flexGrow: 1, position: 'sticky' }}
     >
     <AppBar 
       position='sticky'
@@ -62,10 +62,10 @@ export default function Topbar() {
     >
       <StyledToolbar>
         <IconButton onClick={handleHome}>
-          <Typography color='black' variant='h6' sx={{display:{xs: "none", sm:"block"}}}>
-            GoodForumName
+          <Typography variant='h5' sx={{display:{xs: "none", sm:"block"}}} marginRight={1}>
+            Tech Forum
           </Typography>        
-          <HomeIcon/>
+          <ImportantDevicesIcon/>
         </IconButton>
         <Box
           display={'flex'}

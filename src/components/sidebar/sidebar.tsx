@@ -29,7 +29,7 @@ export default function SideBar() {
         justifyContent={'space-evenly'}
         alignItems={'left'}
         position={'sticky'}
-        mb={1}
+        mb={2}
       >
         <Button 
           sx={{borderRadius: 8}}
