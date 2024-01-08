@@ -134,7 +134,7 @@ export default function PostCard({ post } :PostCardProps) {
         </CardContent>
             <CardContent>
                 <Typography margin='medium' align="left" variant="body1" color="text.secondary">
-                    {isViewPage ? post.description : post.description.length > 100 ? `${post.description.substring(0, 100)}...` : post.description}                
+                    {isViewPage ? post.description : post.description.length > 200 ? `${post.description.substring(0, 200)}...` : post.description}                
                 </Typography>
             </CardContent>
         <CardContent>
