@@ -1,9 +1,6 @@
 import React from 'react';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 
-
-import { ThemeOptions } from '@mui/material/styles';
-
 export const DefaultTheme = createTheme({
     palette: {
         mode: 'light',
