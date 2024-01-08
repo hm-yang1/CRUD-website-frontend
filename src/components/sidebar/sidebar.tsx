@@ -19,7 +19,7 @@ export default function SideBar() {
   }
   return (
     <Box 
-      style={{ paddingTop:30, position: 'sticky', top:0}}
+      style={{ paddingTop:70, position: 'sticky', top:0}}
       flex={1} 
       p={2} 
       sx={{ display: { xs: "none", sm: "block" } }}
