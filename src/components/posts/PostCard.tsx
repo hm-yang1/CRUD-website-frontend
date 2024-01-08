@@ -82,7 +82,7 @@ export default function PostCard({ post } :PostCardProps) {
     }    
     return (
         <Box
-            marginBlock={1}
+            marginBlock={2}
             borderRadius={5}
         >
         <Card sx={{ 
@@ -92,7 +92,7 @@ export default function PostCard({ post } :PostCardProps) {
         <CardHeader
             sx={{backgroundColor: '#f0f0f0' }}
             title={
-                <Button component={Link} to={`/posts/${post.postid}`} color="inherit" style={{ textDecoration: 'none' }}>
+                <Button component={Link} to={`/posts/${post.postid}`} color="inherit">
                     <Typography
                         align='left'
                         variant='subtitle1'
@@ -101,7 +101,7 @@ export default function PostCard({ post } :PostCardProps) {
                         {post.title}
                     </Typography>
                 </Button>
-              }
+            }
             subheader={`By: ${post.username} | ${datetime}`}
             action = {
                 isPostOwner && (
@@ -139,7 +139,12 @@ export default function PostCard({ post } :PostCardProps) {
             </>
         </CardContent>
             <CardContent>
-                <Typography margin='medium' align="left" variant="body1" color="text.secondary">
+                <Typography 
+                    margin='medium' 
+                    align="left" 
+                    variant="body1" 
+                    color="text.secondary"
+                >
                     {isViewPage ? post.description : post.description.length > 200 ? `${post.description.substring(0, 200)}...` : post.description}                
                 </Typography>
             </CardContent>
