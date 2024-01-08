@@ -108,7 +108,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                     disabled={isUpvoteButtonDisabled}
                 >
                     <Typography
-                        variant='h6'
+                        variant='subtitle2'
                         color={'white'}
                     >
                         Sort by Upvotes
@@ -121,7 +121,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
                     disabled={isTimeButtonDisabled}
                 >
                     <Typography
-                        variant='h6'
+                        variant='subtitle2'
                         color={'white'}
                     >
                         Sort by Time

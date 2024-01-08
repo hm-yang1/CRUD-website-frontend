@@ -18,7 +18,9 @@ import SearchBar from '../../pages/Posts/Searched/SearchBar';
 
 const StyledToolbar = styled(Toolbar) ({
   display:"flex",
-  justifyContent:"space-between"
+  position:"sticky",
+  justifyContent:"space-between",
+  backgroundColor:"ghostwhite",
 })
 
 const IconsContainter = styled(Box)(({ theme }) => ({
@@ -55,10 +57,7 @@ export default function Topbar() {
     <Box
       marginBottom={1}
     >
-    <AppBar 
-      position = "sticky"
-      sx={{backgroundColor: '#636363'}}
-    >
+    <AppBar>
       <StyledToolbar>
         <IconButton onClick={handleHome}>
           <Typography variant='h6' sx={{color:'white', display:{xs: "none", sm:"block"}}}>
