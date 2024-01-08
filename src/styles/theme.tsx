@@ -1,21 +1,12 @@
 import React from 'react';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import { lightBlue, orange } from '@mui/material/colors';
 
 export const DefaultTheme = createTheme({
     palette: {
         mode: 'light',
-        primary: {
-        main: '#164DEB',
-        },
-        secondary: {
-        main: '#00FAC0',
-        },
-        info: {
-        main: '#6e687a',
-        },
-        success: {
-        main: '#a5a271',
-        },
+        primary: lightBlue,
+        secondary: orange,
     },
     typography: {
         fontFamily: 'Roboto, sans-serif', // Your custom default font
