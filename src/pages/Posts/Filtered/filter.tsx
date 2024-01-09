@@ -23,9 +23,11 @@ function TagButtonGrid(){
     
     //Check if tags are already selected from URL params
     const params = new URLSearchParams(location.search);
-    const tagNamesFromUrl = params.getAll('tags');
+    const tagNamesFromUrl = params.get('tags');
     console.log(tagNamesFromUrl);
-    setTagNames(tagNamesFromUrl);
+    const tagNamesArray = tagNamesFromUrl ? tagNamesFromUrl.split('&') : [];
+    console.log(tagNamesArray);
+    setTagNames(tagNamesArray);
   }, []);
 
   function handleTagClick(tag: Tag): void {
