@@ -58,6 +58,9 @@ function TagButtonGrid(){
       const queryParams = new URLSearchParams(location.search);
       queryParams.set('tags', tagsString);
       navigate(`/filtered-posts?${queryParams.toString()}`);
+      if (window.location.pathname.startsWith('/filtered-posts')) {
+        window.location.reload();
+      }   
   }
   return (
     <Box 
