@@ -99,7 +99,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
             <Box 
                 display={'flex'} 
                 justifyContent={'flex-end'} 
-                paddingTop={1}
+                paddingTop={5}
             >
                 <Button
                     size='small'
