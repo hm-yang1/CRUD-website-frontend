@@ -60,7 +60,7 @@ export default function Topbar() {
   
   return (
     <TopbarContainer
-      marginBottom={1}
+      marginBottom={4}
     >
     <AppBar 
       position='sticky'
