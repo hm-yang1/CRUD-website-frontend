@@ -22,12 +22,12 @@ function TagButtonGrid(){
         .catch((error) => console.error('Error fetching tags:', error));
     
     //Check if tags are already selected from URL params
-    const params = new URLSearchParams(location.search);
-    const tagNamesFromUrl = params.get('tags');
-    console.log(tagNamesFromUrl);
-    const tagNamesArray = tagNamesFromUrl ? tagNamesFromUrl.split('&') : [];
-    console.log(tagNamesArray);
-    setTagNames(tagNamesArray);
+    if(window.location.pathname.startsWith('/filtered-posts')) {
+      const params = new URLSearchParams(location.search);
+      const tagNamesFromUrl = params.get('tags');
+      const tagNamesArray = tagNamesFromUrl ? tagNamesFromUrl.split('&') : [];
+      setTagNames(tagNamesArray);
+    }
   }, []);
 
   function handleTagClick(tag: Tag): void {

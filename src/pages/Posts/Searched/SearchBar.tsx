@@ -59,9 +59,11 @@ export default function SearchBar() {
     };
 
     useEffect(() => {//To remember the search query
-        const params = new URLSearchParams(location.search);
-        const queryFromUrl = params.get('query');
-        setQuery(queryFromUrl || '');
+        if(window.location.pathname.startsWith('/searched-posts')) {
+            const params = new URLSearchParams(location.search);
+            const queryFromUrl = params.get('query');
+            setQuery(queryFromUrl || '');
+        }
     }, [location.search])
 
     return (
