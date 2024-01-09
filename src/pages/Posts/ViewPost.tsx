@@ -38,7 +38,7 @@ export default function ViewPost(){
             <Box>
             <Stack direction="row" spacing={2} justifyContent="space-between">
                 <Box flex={4} p={{ xs: 0, md: 2 }} bgcolor="white">
-                    <Box paddingBlock={5}></Box>
+                    <Box paddingBlock={3}></Box>
                     <PostCard post={post}/>
                 </Box>
             </Stack>
