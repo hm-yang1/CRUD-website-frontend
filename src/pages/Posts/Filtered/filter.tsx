@@ -16,9 +16,15 @@ function TagButtonGrid(){
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [tagNames, setTagNames] = useState<string[]>([])
   useEffect(() => {
+    //Fetch all tags
     GetAllTagsHandler()
         .then((tags) => setAvaliableTags(tags))
-        .catch((error) => console.error('Error fetching tags:', error))
+        .catch((error) => console.error('Error fetching tags:', error));
+    
+    //Check if tags are already selected from URL params
+    const params = new URLSearchParams(location.search);
+    const tagNamesFromUrl = params.getAll('tags');
+    setTagNames(tagNamesFromUrl);
   }, []);
   function handleTagClick(tag: Tag): void {
       const isSelected = tagNames.includes(tag.name);
