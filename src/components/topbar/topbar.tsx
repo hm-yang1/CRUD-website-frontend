@@ -20,7 +20,7 @@ const TopbarContainer = styled(Box)({
   position: 'fixed',
   width: '100%',
   top: 0,
-  zIndex: 1000,
+  zIndex: 10,
 });
 
 const StyledToolbar = styled(Toolbar) ({
