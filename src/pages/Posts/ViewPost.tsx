@@ -29,7 +29,7 @@ export default function ViewPost(){
     }, [postIdNumber]);
 
     if(!post) {
-        return <div>Loading.....</div>
+        return <div>Post Doesn't exist... :(</div>
     }
 
     return (

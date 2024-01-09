@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { alpha, styled } from '@mui/material';
 
@@ -51,6 +51,12 @@ export default function SearchBar() {
         navigate(`/searched-posts?${queryParams.toString()}`)
         window.location.reload();
     };
+
+    useEffect(() => {//To remember the search query
+        const params = new URLSearchParams(location.search);
+        const queryFromUrl = params.get('query');
+        setQuery(queryFromUrl || '');
+    }, [location.search])
 
     return (
             <StyledSearchBar
