@@ -24,8 +24,10 @@ function TagButtonGrid(){
     //Check if tags are already selected from URL params
     const params = new URLSearchParams(location.search);
     const tagNamesFromUrl = params.getAll('tags');
+    console.log(tagNamesFromUrl);
     setTagNames(tagNamesFromUrl);
   }, []);
+
   function handleTagClick(tag: Tag): void {
       const isSelected = tagNames.includes(tag.name);
       if (isSelected) {
@@ -54,7 +56,6 @@ function TagButtonGrid(){
       const queryParams = new URLSearchParams(location.search);
       queryParams.set('tags', tagsString);
       navigate(`/filtered-posts?${queryParams.toString()}`);
-      window.location.reload();
   }
   return (
     <Box 
