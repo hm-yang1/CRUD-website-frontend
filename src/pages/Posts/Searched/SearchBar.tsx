@@ -48,10 +48,14 @@ export default function SearchBar() {
     const handleSearch = () => {
         const queryParams = new URLSearchParams(location.search);
         queryParams.set('query', query);
-        navigate(`/searched-posts?${queryParams.toString()}`)
+
+        //Reload if already at filtered posts page
         if (window.location.pathname.startsWith('/searched-posts')) {
+            navigate(`/searched-posts?${queryParams.toString()}`)
             window.location.reload();
-        }   
+        } else {
+            navigate(`/searched-posts?${queryParams.toString()}`)
+        }
     };
 
     useEffect(() => {//To remember the search query

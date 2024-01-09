@@ -57,10 +57,14 @@ function TagButtonGrid(){
       const tagsString = tagNames.join('&');
       const queryParams = new URLSearchParams(location.search);
       queryParams.set('tags', tagsString);
-      navigate(`/filtered-posts?${queryParams.toString()}`);
+
+      //Reload if already at filtered-posts page
       if (window.location.pathname.startsWith('/filtered-posts')) {
+        navigate(`/filtered-posts?${queryParams.toString()}`);
         window.location.reload();
-      }   
+      } else {
+        navigate(`/filtered-posts?${queryParams.toString()}`);
+      }
   }
   return (
     <Box 
