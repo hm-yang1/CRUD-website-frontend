@@ -63,6 +63,9 @@ export default function CreatePost(){
     return (
         <>
         <Topbar/>
+        <Box 
+            marginTop={'65px'}
+        />
         <Container maxWidth="md">
             <Box mt={5}>
                 <Typography variant='h4' gutterBottom>
