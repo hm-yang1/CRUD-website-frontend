@@ -39,7 +39,6 @@ export default function Login() {
     
     async function onSubmit(loginRequest: LoginRequest) {
         const jsonData = JSON.stringify(loginRequest);
-        console.log(jsonData)
         try {
             const response = await fetch(`${API_BASE_URL}/api/login`,{
                 method: 'POST',
@@ -61,12 +60,6 @@ export default function Login() {
                 console.error(error)
             } else if (response.ok) {
                 console.log('Login Successful');
-                // const {token} = await response.json()
-                // console.log(token)
-                // handleLogin(loginRequest.username)
-                // const headers = new Headers({
-                //     'Authorization': `Bearer ${token}`,
-                // })
                 navigate("/")
             } else {
                 console.error('Failed to send login request');
