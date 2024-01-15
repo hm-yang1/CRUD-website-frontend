@@ -3,21 +3,19 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {  ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { LoginRequest } from '../../types/types';
 import { API_BASE_URL } from '../../config/config';
 import { DefaultTheme } from '../../styles/theme';
-import { createContext, useContext, useState } from 'react';
+import { useState } from 'react';
 import { UseAuth } from './AuthContext';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { InputAdornment, IconButton } from '@mui/material';
@@ -63,12 +61,12 @@ export default function Login() {
                 console.error(error)
             } else if (response.ok) {
                 console.log('Login Successful');
-                const {token} = await response.json()
-                console.log(token)
-                handleLogin(loginRequest.username)
-                const headers = new Headers({
-                    'Authorization': `Bearer ${token}`,
-                })
+                // const {token} = await response.json()
+                // console.log(token)
+                // handleLogin(loginRequest.username)
+                // const headers = new Headers({
+                //     'Authorization': `Bearer ${token}`,
+                // })
                 navigate("/")
             } else {
                 console.error('Failed to send login request');

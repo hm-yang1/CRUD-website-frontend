@@ -30,7 +30,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 setAuthenticated(true);
                 const savedUsername = localStorage.getItem('username') ?? '';
                 setAuthUsername(savedUsername);
-                console.log(savedUsername);
             } else {
                 console.log("Not authenticated");
                 localStorage.setItem('username', '');
