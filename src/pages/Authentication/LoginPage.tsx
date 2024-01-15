@@ -60,6 +60,12 @@ export default function Login() {
                 console.error(error)
             } else if (response.ok) {
                 console.log('Login Successful');
+                const {token} = await response.json()
+                console.log(token)
+                handleLogin(loginRequest.username)
+                const headers = new Headers({
+                    'Authorization': `Bearer ${token}`,
+                })
                 navigate("/")
             } else {
                 console.error('Failed to send login request');
