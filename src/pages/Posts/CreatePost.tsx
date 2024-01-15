@@ -64,7 +64,7 @@ export default function CreatePost(){
         <>
         <Topbar/>
         <Box 
-            marginTop={'65px'}
+            marginBottom={'10px'}
         />
         <Container maxWidth="md">
             <Box mt={5}>
