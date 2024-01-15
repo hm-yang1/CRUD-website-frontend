@@ -74,6 +74,9 @@ export default function EditPost(){
     return (
         <>
         <Topbar/>
+        <Box 
+            marginTop={'60px'}
+        />
         <Container maxWidth="md">
             <Box mt={5}>
                 <Typography variant='h4' gutterBottom>
