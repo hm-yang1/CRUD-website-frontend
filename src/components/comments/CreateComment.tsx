@@ -37,9 +37,6 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
         }
     }
 
-    const handleCancel = () => {
-        IsVisible = false;
-    }
     return (
         <div>
         {IsVisible && <Box style={{ marginTop: '10px' }}>
@@ -55,9 +52,6 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
             style={{ marginBottom: '5px' }}
             />
             <Box display="flex" justifyContent="flex-end">
-                <Button onClick={handleCancel} variant="text">
-                    Cancel
-                </Button>
                 <Button onClick={AuthCheckandCreateComment} variant="contained" color="secondary">
                     Submit
                 </Button>
