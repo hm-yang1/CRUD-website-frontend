@@ -75,7 +75,7 @@ export default function EditPost(){
         <>
         <Topbar/>
         <Box 
-            marginBottom={'10px'}
+            marginTop={'80px'}
         />
         <Container maxWidth="md">
             <Box mt={5}>
