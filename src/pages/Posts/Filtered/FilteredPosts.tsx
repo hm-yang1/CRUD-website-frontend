@@ -8,6 +8,7 @@ import { useLocation } from 'react-router';
 import { GetFilteredPostsHandler } from '../../../APIHandlers/posts/GetFilteredPostsHandler';
 
 export default function FilteredPosts() {
+    //Renders the filtered post
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search)
     const tagsString = queryParams.get('tags');

@@ -9,6 +9,7 @@ import CreatePostHandler from '../../APIHandlers/posts/CreatePostHandler';
 import { UseAuth } from '../Authentication/AuthContext';
 
 export default function CreatePost(){
+    //Page to create post
     const navigate = useNavigate();
     const {isAuthenticated, AuthUsername} = UseAuth();
     const [titleError, setTitleError] = useState('');
