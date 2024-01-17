@@ -5,7 +5,7 @@ import GetPostById from '../../APIHandlers/posts/GetPostByIdHandler';
 import PostCard from '../../components/posts/PostCard';
 import Box from '@mui/material/Box';
 import Topbar from '../../components/topbar/topbar';
-import { CircularProgress, Stack } from '@mui/material';
+import { CircularProgress, Stack, Typography } from '@mui/material';
 import { GetCommentsHandler } from '../../APIHandlers/comments/GetCommentsHandler';
 import CommentCards from '../../components/comments/CommentCards';
 
@@ -30,13 +30,26 @@ export default function ViewPost(){
 
     if (isLoading) {
         return (
-            <Box alignItems={'center'}>
+            <Box 
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="100vh"
+            >
                 <CircularProgress/>
             </Box>
         )
     }
     if(!post) {
-        return <div>Post Doesn't exist... :(</div>
+        return (
+            <>
+            <Topbar/>
+            <Box/>
+            <Typography variant='h6'>
+                Post Doesn't exist... :(
+            </Typography>
+            </>
+        )
     }
 
     return (

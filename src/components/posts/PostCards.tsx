@@ -83,7 +83,12 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
 
     if (isLoading) {
         return (
-            <Box alignItems={'center'}>
+            <Box 
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="100vh"
+            >
                 <CircularProgress/>
             </Box>
         )
