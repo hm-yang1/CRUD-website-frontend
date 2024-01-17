@@ -74,7 +74,7 @@ export default function Topbar() {
       <StyledToolbar>
         <IconButton onClick={handleHome}>
           <Typography variant='h5' sx={{display:{xs: "none", sm:"block"}}} marginRight={1}>
-            Tech Forum
+            Web Forum
           </Typography>        
           <ImportantDevicesIcon/>
         </IconButton>
