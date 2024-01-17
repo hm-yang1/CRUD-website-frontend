@@ -5,7 +5,6 @@ import Sidebar from '../../../components/sidebar/sidebar';
 import { Stack } from '@mui/material';
 import PostCards from '../../../components/posts/PostCards';
 import { useLocation } from 'react-router';
-import { GetFilteredPostsHandler } from '../../../APIHandlers/posts/GetFilteredPostsHandler';
 import { GetSearchedPostsHandler } from '../../../APIHandlers/posts/GetSearchedPostsHandler';
 
 export default function SearchedPosts() {

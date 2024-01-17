@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Post, Tag, PostRequest } from '../../types/types';
-import GetPostById from '../../APIHandlers/posts/GetPostByIdHandler';
-import PostCard from '../../components/posts/PostCard';
+import { useNavigate } from 'react-router-dom';
+import { Tag, PostRequest } from '../../types/types';
 import Box from '@mui/material/Box';
 import Topbar from '../../components/topbar/topbar';
 import { Button, ButtonGroup, Container, Stack, TextField, Typography } from '@mui/material';
-import PostCards from '../../components/posts/PostCards';
-import Sidebar from '../../components/sidebar/sidebar';
 import GetAllTagsHandler from '../../APIHandlers/tags/GetAllTagsHandler';
 import CreatePostHandler from '../../APIHandlers/posts/CreatePostHandler';
 import { UseAuth } from '../Authentication/AuthContext';
-import { redirect } from 'react-router-dom';
-import { CreateComment } from '../../components/comments/CreateComment';
 
 export default function CreatePost(){
     const navigate = useNavigate();

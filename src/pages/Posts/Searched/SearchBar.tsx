@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
-import { alpha, styled } from '@mui/material';
+import { styled } from '@mui/material';
 
 const StyledSearchBar = styled(TextField)(({ theme }) => ({
     background: 'rgba(255, 255, 255, 0.7)',

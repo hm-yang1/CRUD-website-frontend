@@ -1,8 +1,7 @@
-import React, { useState, ChangeEvent, useEffect } from 'react';
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import { CommentRequest } from '../../types/types';
 import { UseAuth } from '../../pages/Authentication/AuthContext';
-import  CreateCommentHandler  from '../../APIHandlers/comments/CreateCommentHandler'
 import { useNavigate } from 'react-router-dom';
 import GetCommentHanlder from '../../APIHandlers/comments/GetCommentHandler';
 import EditCommentHandler from '../../APIHandlers/comments/EditCommentHandler';

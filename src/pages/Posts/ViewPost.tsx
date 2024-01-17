@@ -6,8 +6,6 @@ import PostCard from '../../components/posts/PostCard';
 import Box from '@mui/material/Box';
 import Topbar from '../../components/topbar/topbar';
 import { Stack } from '@mui/material';
-import PostCards from '../../components/posts/PostCards';
-import Sidebar from '../../components/sidebar/sidebar';
 import { GetCommentsHandler } from '../../APIHandlers/comments/GetCommentsHandler';
 import CommentCards from '../../components/comments/CommentCards';
 

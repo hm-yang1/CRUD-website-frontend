@@ -23,7 +23,6 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
             if (!newData || newData.length === 0) {
                 setHasMore(false);
             } else {
-                console.log(newData);
                 const uniqueNewPosts = newData.filter(
                     (newPost) => !posts.some((post) => post.postid === newPost.postid)
                 );

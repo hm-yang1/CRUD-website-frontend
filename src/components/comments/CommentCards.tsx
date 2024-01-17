@@ -3,7 +3,6 @@ import { GetCommentsHandler } from '../../APIHandlers/comments/GetCommentsHandle
 import { Comment } from '../../types/types';
 import  CommentCard from './CommentCard'
 import Box from '@mui/material/Box';
-import { CenterFocusStrongRounded } from '@mui/icons-material';
 import { Button, Typography } from '@mui/material';
 
 interface CommentCardsProps {

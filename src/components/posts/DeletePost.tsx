@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Post, Tag, PostRequest } from '../../types/types';
-import GetPostById from '../../APIHandlers/posts/GetPostByIdHandler';
-import { UseAuth } from '../../pages/Authentication/AuthContext';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import DeletePostHandler from '../../APIHandlers/posts/DeletePostHandler';
 

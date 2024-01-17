@@ -4,14 +4,12 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ButtonBase from '@mui/material/ButtonBase';
 import { ReactNode, useEffect, useState } from 'react';
 import { Post } from '../../types/types';
 import Button from '@mui/material/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { UseAuth } from '../../pages/Authentication/AuthContext';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
@@ -20,7 +18,6 @@ import { Box, Grid } from '@mui/material';
 import { DeletePostConfirmation } from './DeletePost';
 import { CreateComment } from '../comments/CreateComment';
 import UpvoteButton from '../upvotes/UpvoteButton';
-import GetPostUpvoteHandler from '../../APIHandlers/upvotes/GetPostUpvoteHandler';
 
 function ClickableBox({ onClick, children }: { onClick: () => void; children: ReactNode }): React.ReactElement {
     //Not used

@@ -1,11 +1,10 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import {useEffect, useState } from 'react';
 import { Tag } from '../../../types/types';
 import Button from '@mui/material/Button';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Box, Grid, Paper } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import GetAllTagsHandler from '../../../APIHandlers/tags/GetAllTagsHandler';
 
 function TagButtonGrid(){

@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 import { CommentRequest } from '../../types/types';
 import { UseAuth } from '../../pages/Authentication/AuthContext';
