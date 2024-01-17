@@ -12,6 +12,8 @@ import { IconButton, Typography } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutButton from '../../pages/Authentication/LogoutButton';
 import { useNavigate } from 'react-router-dom';
+import { ProfileDialog } from '../profile/profile';
+import { useState } from 'react';
 
 //For mobile view of topbar, currently work in progress
 
@@ -60,18 +62,23 @@ export default function CustomizedMenus() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
+  const [openProfile, setOpenProfile] = useState(false);
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const { isAuthenticated } = UseAuth();
+  const { isAuthenticated, AuthUsername } = UseAuth();
 
   function handleCreate(){
     isAuthenticated
       ? navigate('/posts/create')
       : navigate('/login')
+  }
+  const handleProfile = () => {
+    setOpenProfile(!openProfile);
   }
 
   return (
@@ -98,16 +105,19 @@ export default function CustomizedMenus() {
       >
         {isAuthenticated ? (
         <>
-        <MenuItem>
-          <IconButton onClick={handleCreate}>
-            <AddBoxIcon/>
-            Create Post
-          </IconButton>
+        <MenuItem onClick={handleCreate} disableRipple>
+          <AddBoxIcon/>
+          Create Post
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           <AccountCircleIcon sx ={{color:"white"}}/>
           Profile
         </MenuItem>
+        <ProfileDialog 
+          username = {AuthUsername}
+          handleClose={handleProfile}
+          isVisible={openProfile}
+        />
         <Divider sx={{ my: 0.5 }} />
         <MenuItem onClick={handleClose} disableRipple>
           <LogoutButton/>

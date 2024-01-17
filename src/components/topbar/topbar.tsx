@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,6 +14,8 @@ import { UseAuth } from '../../pages/Authentication/AuthContext';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import SearchBar from '../../pages/Posts/Searched/SearchBar';
 import LogoutButton from '../../pages/Authentication/LogoutButton';
+import { useState } from 'react';
+import { ProfileDialog } from '../profile/profile';
 
 const TopbarContainer = styled(Box)({
   position: 'fixed',
@@ -44,8 +46,9 @@ const MenuContainer = styled(Box)(({ theme }) => ({
 }));
 
 export default function Topbar() {
-  const { isAuthenticated } = UseAuth();
+  const { isAuthenticated, AuthUsername } = UseAuth();
   const navigate = useNavigate();
+  const [openProfile, setOpenProfile] = useState(false);
 
   function handleHome(){
     navigate('/');
@@ -55,6 +58,10 @@ export default function Topbar() {
     isAuthenticated
       ? navigate('/posts/create')
       : navigate('/login')
+  }
+
+  const handleProfile = () => {
+    setOpenProfile(!openProfile);
   }
   
   return (
@@ -90,9 +97,14 @@ export default function Topbar() {
               </IconButton>
             ) : (
               <>
-              <IconButton>
+              <IconButton onClick={handleProfile}>
                 <AccountCircle/>
               </IconButton>
+              <ProfileDialog 
+                username = {AuthUsername}
+                handleClose={handleProfile}
+                isVisible={openProfile}
+              />
               <LogoutButton/>
               </>
             )
