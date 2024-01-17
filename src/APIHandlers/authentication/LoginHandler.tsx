@@ -6,6 +6,7 @@ import { UseAuth } from '../../pages/Authentication/AuthContext';
 export default async function onSubmit(loginRequest: LoginRequest) {
     const jsonData = JSON.stringify(loginRequest);
     const { handleLogin } = UseAuth();
+    console.log(loginRequest);
     try {
         const response = await fetch(`${API_BASE_URL}/api/login`,{
             method: 'POST',
