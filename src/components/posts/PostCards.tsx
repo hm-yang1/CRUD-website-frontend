@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Post } from '../../types/types';
 import  PostCard from './PostCard'
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Typography } from '@mui/material';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 //Renders renders 10 posts at a time with infinite scroll
@@ -14,6 +14,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
     const [isTimeButtonDisabled, setIsTimeButtonDisabled] = useState(true);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     async function fetchData(pageNumber: number){
         try {
@@ -40,6 +41,7 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
     useEffect(() => {
         const fetchInitialData =async () => {
             await fetchData(page);
+            setIsLoading(false);
         }
         fetchInitialData();
     }, []);
@@ -79,6 +81,13 @@ export default function PostCards({ getPostsHandler }: PostCardsProps){
         setIsUpvoteButtonDisabled(false);
     }
 
+    if (isLoading) {
+        return (
+            <Box alignItems={'center'}>
+                <CircularProgress/>
+            </Box>
+        )
+    }
     if (!posts || posts.length === 0) {
         return (
             <Box 

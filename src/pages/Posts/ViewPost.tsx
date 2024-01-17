@@ -30,9 +30,9 @@ export default function ViewPost(){
 
     if (isLoading) {
         return (
-            <div>
+            <Box alignItems={'center'}>
                 <CircularProgress/>
-            </div>
+            </Box>
         )
     }
     if(!post) {

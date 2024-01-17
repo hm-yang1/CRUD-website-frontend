@@ -5,8 +5,6 @@ import Sidebar from '../../components/sidebar/sidebar';
 import { Stack, Switch } from '@mui/material';
 import PostCards from '../../components/posts/PostCards';
 import { GetAllPostsHandler } from '../../APIHandlers/posts/GetAllPostHandler';
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
 
 export default function Home() {
     //Default page that loads postcards, topbar and sidebar
