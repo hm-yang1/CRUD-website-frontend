@@ -4,7 +4,6 @@ import { LoginRequest } from '../../types/types';
 
 export default async function LoginHandler(loginRequest: LoginRequest) {
     const jsonData = JSON.stringify(loginRequest);
-    console.log("From handler:", loginRequest);
     try {
         const response = await fetch(`${API_BASE_URL}/api/login`,{
             method: 'POST',

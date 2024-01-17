@@ -13,7 +13,6 @@ import {  ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { LoginRequest } from '../../types/types';
-import { API_BASE_URL } from '../../config/config';
 import { DefaultTheme } from '../../styles/theme';
 import { useState } from 'react';
 import { UseAuth } from './AuthContext';
@@ -37,48 +36,9 @@ export default function Login() {
     if (isAuthenticated) {
         navigate('/');
     }
-    
-    // async function onSubmit(loginRequest: LoginRequest) {
-    //     const jsonData = JSON.stringify(loginRequest);
-    //     try {
-    //         const response = await fetch(`${API_BASE_URL}/api/login`,{
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application.json',
-    //             },
-    //             body: jsonData,
-    //             credentials: 'include'
-    //         });
-
-    //         if (response.status === 401) {
-    //             setError('Invalid username/password')
-    //             console.error(error)
-    //         } else if (response.status === 409) {
-    //             setError('User Already logged in')
-    //             console.error(error)
-    //         } else if (response.status === 500) {
-    //             setError('Internal server error')
-    //             console.error(error)
-    //         } else if (response.ok) {
-    //             console.log('Login Successful');
-    //             const {token} = await response.json()
-    //             console.log(token)
-    //             handleLogin(loginRequest.username)
-    //             const headers = new Headers({
-    //                 'Authorization': `Bearer ${token}`,
-    //             })
-    //             navigate("/")
-    //         } else {
-    //             console.error('Failed to send login request');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error:', error);
-    //     }
-    // }
 
     async function onSubmit(loginRequest: LoginRequest) {
         try {
-            console.log("From login page:", loginRequest)
             const response = await LoginHandler(loginRequest);
             if (response === 'Login Successful'){
                 handleLogin(loginRequest.username);
