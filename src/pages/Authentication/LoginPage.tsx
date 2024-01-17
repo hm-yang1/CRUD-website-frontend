@@ -78,10 +78,9 @@ export default function Login() {
 
     async function onSubmit(loginRequest: LoginRequest) {
         try {
+            console.log("From login page:", loginRequest)
             const response = await LoginHandler(loginRequest);
-            if (response === 'Login Successful') {
-                navigate("/");
-            } else {
+            if (response){
                 setError(response);
             }
         } catch {
