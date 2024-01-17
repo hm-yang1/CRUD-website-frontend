@@ -5,16 +5,15 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ImportantDevicesIcon from '@mui/icons-material/ImportantDevices';
 import LoginIcon from '@mui/icons-material/Login';
-import Logout from '../../pages/Authentication/LogoutButton';
 import { useNavigate } from 'react-router';
 import CustomizedMenus from './CustomizedMenu';
 import { UseAuth } from '../../pages/Authentication/AuthContext';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import SearchBar from '../../pages/Posts/Searched/SearchBar';
+import LogoutButton from '../../pages/Authentication/LogoutButton';
 
 const TopbarContainer = styled(Box)({
   position: 'fixed',
@@ -94,7 +93,7 @@ export default function Topbar() {
               <IconButton>
                 <AccountCircle/>
               </IconButton>
-              <Logout/>
+              <LogoutButton/>
               </>
             )
           }

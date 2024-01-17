@@ -10,6 +10,7 @@ import { UseAuth } from '../../pages/Authentication/AuthContext';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { IconButton, Typography } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
+import LogoutButton from '../../pages/Authentication/LogoutButton';
 
 //For mobile view of topbar, currently work in progress
 
@@ -95,10 +96,7 @@ export default function CustomizedMenus() {
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
         <MenuItem onClick={handleClose} disableRipple>
-          <LogoutIcon/>
-          <Typography variant='body1'>
-            Logout
-          </Typography>
+          <LogoutButton/>
         </MenuItem>
         </>
         ) : (
