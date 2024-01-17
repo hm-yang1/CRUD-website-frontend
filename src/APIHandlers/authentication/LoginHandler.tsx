@@ -1,12 +1,9 @@
 import * as React from 'react';
 import { API_BASE_URL } from '../../config/config';
 import { LoginRequest } from '../../types/types';
-import { UseAuth } from '../../pages/Authentication/AuthContext';
-import { useNavigate } from 'react-router';
 
 export default async function LoginHandler(loginRequest: LoginRequest) {
     const jsonData = JSON.stringify(loginRequest);
-    const { handleLogin } = UseAuth();
     console.log("From handler:", loginRequest);
     try {
         const response = await fetch(`${API_BASE_URL}/api/login`,{
@@ -32,7 +29,6 @@ export default async function LoginHandler(loginRequest: LoginRequest) {
             console.log(success);
             const {token} = await response.json();
             console.log(token);
-            handleLogin(loginRequest.username);
             const headers = new Headers({
                 'Authorization': `Bearer ${token}`,
             });

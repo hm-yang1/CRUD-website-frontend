@@ -81,6 +81,7 @@ export default function Login() {
             console.log("From login page:", loginRequest)
             const response = await LoginHandler(loginRequest);
             if (response === 'Login Successful'){
+                handleLogin(loginRequest.username);
                 navigate("/");
             } else {
                 setError(response);
