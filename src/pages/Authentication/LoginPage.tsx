@@ -17,7 +17,7 @@ import { DefaultTheme } from '../../styles/theme';
 import { useState } from 'react';
 import { UseAuth } from './AuthContext';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { InputAdornment, IconButton } from '@mui/material';
+import { InputAdornment, IconButton, darkScrollbar } from '@mui/material';
 import LoginHandler from '../../APIHandlers/authentication/LoginHandler';
 
 export default function Login() {
@@ -126,12 +126,12 @@ export default function Login() {
                 </Button>
                 <Grid container>
                 <Grid item xs>
-                    <Link href="/" variant="body2">
+                    <Link href="/" variant="body2" color={'#00008B'}>
                     Go Home
                     </Link>
                 </Grid>
                 <Grid item>
-                    <Link href="/register" variant="body2">
+                    <Link href="/register" variant="body2" color={'#00008B'}>
                     {"Don't have an account? Sign Up"}
                     </Link>
                 </Grid>

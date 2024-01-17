@@ -41,6 +41,7 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
         <div>
         {IsVisible && <Box style={{ marginTop: '10px' }}>
             <TextField
+            margin='normal'
             autoFocus
             label="Comment..."
             variant="outlined"
