@@ -7,10 +7,11 @@ import Divider from '@mui/material/Divider';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import { UseAuth } from '../../pages/Authentication/AuthContext';
-import LogoutIcon from '@mui/icons-material/Logout';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import { IconButton, Typography } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutButton from '../../pages/Authentication/LogoutButton';
+import { useNavigate } from 'react-router-dom';
 
 //For mobile view of topbar, currently work in progress
 
@@ -58,6 +59,7 @@ const StyledMenu = styled((props: MenuProps) => (
 export default function CustomizedMenus() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -65,6 +67,12 @@ export default function CustomizedMenus() {
     setAnchorEl(null);
   };
   const { isAuthenticated } = UseAuth();
+
+  function handleCreate(){
+    isAuthenticated
+      ? navigate('/posts/create')
+      : navigate('/login')
+  }
 
   return (
     <div>
@@ -90,6 +98,12 @@ export default function CustomizedMenus() {
       >
         {isAuthenticated ? (
         <>
+        <MenuItem>
+          <IconButton onClick={handleCreate}>
+            <AddBoxIcon/>
+            Create Post
+          </IconButton>
+        </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           <AccountCircleIcon sx ={{color:"white"}}/>
           Profile
