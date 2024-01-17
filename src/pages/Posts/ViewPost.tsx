@@ -5,7 +5,7 @@ import GetPostById from '../../APIHandlers/posts/GetPostByIdHandler';
 import PostCard from '../../components/posts/PostCard';
 import Box from '@mui/material/Box';
 import Topbar from '../../components/topbar/topbar';
-import { Stack } from '@mui/material';
+import { CircularProgress, Stack } from '@mui/material';
 import { GetCommentsHandler } from '../../APIHandlers/comments/GetCommentsHandler';
 import CommentCards from '../../components/comments/CommentCards';
 
@@ -15,17 +15,26 @@ export default function ViewPost(){
     //Use params might return undefined, provide definite value of '' to parseInt
     const postIdNumber = parseInt(postid ?? '', 10);
     const [post, setPost] = useState<Post | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (!isNaN(postIdNumber)){
             const fetchPost = async () => {
                 const fetchedPost = await GetPostById(postIdNumber);
                 setPost(fetchedPost);
+                setIsLoading(false);
             };
             fetchPost();
         }
     }, [postIdNumber]);
 
+    if (isLoading) {
+        return (
+            <div>
+                <CircularProgress/>
+            </div>
+        )
+    }
     if(!post) {
         return <div>Post Doesn't exist... :(</div>
     }
