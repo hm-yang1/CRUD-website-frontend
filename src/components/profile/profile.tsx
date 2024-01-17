@@ -19,7 +19,7 @@ export function ProfileDialog({ username, isVisible, handleClose }: ProfileDialo
             <DialogTitle>Profile</DialogTitle>
             <DialogContent>
                 <Typography variant='body1'>
-                    Username: ${username}
+                    Hi {username}! This portion is currently under construction :(
                 </Typography>
             </DialogContent>
             <DialogActions>

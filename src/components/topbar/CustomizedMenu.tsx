@@ -109,7 +109,7 @@ export default function CustomizedMenus() {
           <AddBoxIcon/>
           Create Post
         </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={handleProfile} disableRipple>
           <AccountCircleIcon sx ={{color:"white"}}/>
           Profile
         </MenuItem>
