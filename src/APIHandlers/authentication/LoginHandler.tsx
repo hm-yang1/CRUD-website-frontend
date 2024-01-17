@@ -4,10 +4,10 @@ import { LoginRequest } from '../../types/types';
 import { UseAuth } from '../../pages/Authentication/AuthContext';
 import { useNavigate } from 'react-router';
 
-export default async function onSubmit(loginRequest: LoginRequest) {
+export default async function LoginHandler(loginRequest: LoginRequest) {
     const jsonData = JSON.stringify(loginRequest);
     const { handleLogin } = UseAuth();
-    console.log(loginRequest);
+    console.log("From handler:", loginRequest);
     try {
         const response = await fetch(`${API_BASE_URL}/api/login`,{
             method: 'POST',
