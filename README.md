@@ -5,3 +5,7 @@ Hi! Welcome to my attempt to write knockoff reddit.
 Requirements:
   1. React 18.2.0
   2. An api. Designed to be used with this: https://github.com/hm-yang1/cvwo_assignment_backend
+  3. .env file like below
+
+Sample env:
+  REACT_APP_API_URL = your_api_url
