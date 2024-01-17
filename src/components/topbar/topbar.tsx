@@ -16,6 +16,7 @@ import SearchBar from '../../pages/Posts/Searched/SearchBar';
 import LogoutButton from '../../pages/Authentication/LogoutButton';
 import { useState } from 'react';
 import { ProfileDialog } from '../profile/profile';
+import { Tooltip } from '@mui/material';
 
 const TopbarContainer = styled(Box)({
   position: 'fixed',
@@ -87,9 +88,11 @@ export default function Topbar() {
           <SearchBar/>
         </Box>
         <IconsContainter>
-          <IconButton onClick={handleCreate}>
-            <AddBoxIcon/>
-          </IconButton>
+          <Tooltip title='Create Post'>
+            <IconButton onClick={handleCreate}>
+              <AddBoxIcon/>
+            </IconButton>
+          </Tooltip>
           {!isAuthenticated ? (
               <IconButton href='/login'>
                 <LoginIcon/>
@@ -97,9 +100,11 @@ export default function Topbar() {
               </IconButton>
             ) : (
               <>
+              <Tooltip title='Profile'>
               <IconButton onClick={handleProfile}>
                 <AccountCircle/>
               </IconButton>
+              </Tooltip>
               <ProfileDialog 
                 username = {AuthUsername}
                 handleClose={handleProfile}
