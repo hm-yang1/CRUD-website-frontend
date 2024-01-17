@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router';
 export default async function onSubmit(loginRequest: LoginRequest) {
     const jsonData = JSON.stringify(loginRequest);
     const { handleLogin } = UseAuth();
-    const navigate = useNavigate();
     console.log(loginRequest);
     try {
         const response = await fetch(`${API_BASE_URL}/api/login`,{
@@ -37,7 +36,7 @@ export default async function onSubmit(loginRequest: LoginRequest) {
             const headers = new Headers({
                 'Authorization': `Bearer ${token}`,
             });
-            navigate("/");
+            return success;
         } else {
             error = 'Login request failed';
             console.log('Login request failed. Status:', response.status);

@@ -80,7 +80,9 @@ export default function Login() {
         try {
             console.log("From login page:", loginRequest)
             const response = await LoginHandler(loginRequest);
-            if (response){
+            if (response === 'Login Successful'){
+                navigate("/");
+            } else {
                 setError(response);
             }
         } catch {
