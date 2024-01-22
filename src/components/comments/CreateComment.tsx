@@ -13,6 +13,7 @@ interface CreateCommentProps {
 export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
     const navigate = useNavigate();
     const {isAuthenticated, AuthUsername} = UseAuth();
+    const [descriptionError, setDescriptionError] = useState('');
     const [newComment, setNewComment] = useState<CommentRequest>({
         postid: postID,
         username: AuthUsername,
@@ -29,12 +30,16 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
     }
 
     const AuthCheckandCreateComment = async () => {
-        if(isAuthenticated) {
-            await handleCreateComment();
-            window.location.reload();
-        } else {
+        if(!isAuthenticated) {
             navigate('/login');
         }
+        if(!newComment.description.trim()){
+            setDescriptionError('Description cannot be empty!');
+            return;
+        } else {
+            await handleCreateComment();
+            window.location.reload();
+        } 
     }
 
     return (
@@ -63,6 +68,7 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
                     Submit
                 </Button>
             </Box>
+            {descriptionError && <p className='text-red-500'>{descriptionError}</p>}
         </Box>
         }
         </div>
