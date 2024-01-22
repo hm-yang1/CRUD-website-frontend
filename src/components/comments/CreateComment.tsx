@@ -39,8 +39,11 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
 
     return (
         <div>
-        {IsVisible && 
-        <Box style={{display:'flex', alignItems:'center', marginTop: '10px' }}>
+        {IsVisible && <Box
+            marginLeft={10}
+            marginRight={10}
+            marginTop={5}
+            >
             <TextField
             autoFocus
             label="Comment..."
@@ -50,14 +53,12 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
             onChange={(e) => setNewComment({...newComment, description:e.target.value})}
             multiline
             rows={3}
-            style={{ width: '80%', marginBottom: '5px'}}
             />
-        </Box>
-        && 
-        <Box display="flex" justifyContent="flex-end">
-            <Button onClick={AuthCheckandCreateComment} variant="contained" color="secondary">
-                Submit
-            </Button>
+            <Box display="flex" justifyContent="flex-end">
+                <Button onClick={AuthCheckandCreateComment} variant="contained" color="secondary">
+                    Submit
+                </Button>
+            </Box>
         </Box>
         }
         </div>
