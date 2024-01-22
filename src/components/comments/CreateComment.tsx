@@ -55,7 +55,10 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
             variant="outlined"
             fullWidth
             value={newComment.description}
-            onChange={(e) => setNewComment({...newComment, description:e.target.value})}
+            onChange={(e) => {
+                setNewComment({...newComment, description:e.target.value});
+                setDescriptionError('');
+            }}
             multiline
             rows={3}
             />
