@@ -71,7 +71,7 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
                     Submit
                 </Button>
             </Box>
-            {descriptionError && <p className='text-red-500'>{descriptionError}</p>}
+            {descriptionError && <p color='red'>{descriptionError}</p>}
         </Box>
         }
         </div>

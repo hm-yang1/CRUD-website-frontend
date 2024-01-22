@@ -70,51 +70,57 @@ export default function Login() {
                 Sign in
             </Typography>
             <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
-                <TextField
-                {...register('username',{
-                    required: "Username is required"
-                })}
-                margin="normal"
-                fullWidth
-                id="username"
-                label="Username"
-                name="username"
-                autoComplete="username"
-                autoFocus
-                />
-                {error && <p className='text-red-500'>{error}</p>}   {/*shows backend errors*/}
-                {errors.username && (
-                    <p className='text-red-500'>{`${errors.username.message}`}</p>
-                )}
-                <TextField
-                {...register('password', {
-                    required: "Password is required"
-                })}
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type={showPassword ? 'text' : 'password'}
-                id="password"
-                autoComplete="current-password"
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <IconButton
-                                onClick={() => setShowPassword(!showPassword)}
-                                onMouseDown={(e) => e.preventDefault()}
-                                onMouseUp={(e) => e.preventDefault()}//idk why but needed to prevent cursor from jumping to front
-                            >
-                                {showPassword ? <Visibility /> : <VisibilityOff />}
-                            </IconButton>
-                        </InputAdornment>
-                    ),
-                }}
-                />
-                {errors.password && (
-                    <p className='text-red-500'>{`${errors.password.message}`}</p>
-                )}
+                <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <TextField
+                    {...register('username',{
+                        required: "Username is required"
+                    })}
+                    margin="normal"
+                    fullWidth
+                    id="username"
+                    label="Username"
+                    name="username"
+                    autoComplete="username"
+                    autoFocus
+                    />
+                    {error && <p className='text-red-500'>{error}</p>}   {/*shows backend errors*/}
+                    {errors.username && (
+                        <p className='text-red-500'>{`${errors.username.message}`}</p>
+                    )}
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                    {...register('password', {
+                        required: "Password is required"
+                    })}
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type={showPassword ? 'text' : 'password'}
+                    id="password"
+                    autoComplete="current-password"
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    onMouseDown={(e) => e.preventDefault()}
+                                    onMouseUp={(e) => e.preventDefault()}//idk why but needed to prevent cursor from jumping to front
+                                >
+                                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }}
+                    />
+                    {errors.password && (
+                        <p className='text-red-500'>{`${errors.password.message}`}</p>
+                    )}
+                </Grid>
+                </Grid>
                 <Button
                 disabled = {isSubmitting}
                 type="submit"
@@ -124,7 +130,7 @@ export default function Login() {
                 >
                 Sign In
                 </Button>
-                <Grid container>
+                <Grid container justifyContent="flex-end">
                 <Grid item xs>
                     <Link href="/" variant="body2" color={'#00008B'}>
                     Go Home
