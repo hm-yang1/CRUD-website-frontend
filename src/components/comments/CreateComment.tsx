@@ -57,7 +57,7 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
             <Box 
                 display="flex" 
                 justifyContent="flex-end"
-                marginTop={3}
+                marginTop={1}
             >
                 <Button onClick={AuthCheckandCreateComment} variant="contained" color="secondary">
                     Submit
