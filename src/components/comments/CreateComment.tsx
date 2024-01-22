@@ -49,7 +49,7 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
             onChange={(e) => setNewComment({...newComment, description:e.target.value})}
             multiline
             rows={3}
-            style={{alignSelf: 'center', width: '80%', marginBottom: '5px' }}
+            style={{display:'flex', alignSelf: 'center', width: '80%', marginBottom: '5px' }}
             />
             <Box display="flex" justifyContent="flex-end">
                 <Button onClick={AuthCheckandCreateComment} variant="contained" color="secondary">
