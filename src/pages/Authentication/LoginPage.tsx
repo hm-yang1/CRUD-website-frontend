@@ -86,7 +86,7 @@ export default function Login() {
                     />
                     {error && <p className='text-red-500'>{error}</p>}   {/*shows backend errors*/}
                     {errors.username && (
-                        <p className='text-red-500'>{`${errors.username.message}`}</p>
+                        <p>{`${errors.username.message}`}</p>
                     )}
                 </Grid>
                 <Grid item xs={12}>
@@ -117,7 +117,7 @@ export default function Login() {
                     }}
                     />
                     {errors.password && (
-                        <p className='text-red-500'>{`${errors.password.message}`}</p>
+                        <p>{`${errors.password.message}`}</p>
                     )}
                 </Grid>
                 </Grid>

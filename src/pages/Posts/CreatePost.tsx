@@ -77,7 +77,7 @@ export default function CreatePost(){
                         setTitleError('');
                     }}
                 />
-                {titleError && <p className='text-red-500'>{titleError}</p>}
+                {titleError && <p>{titleError}</p>}
                 <Box mt={2}>
                     <Typography variant='subtitle1'>Tags:</Typography>
                     <ButtonGroup>
@@ -104,7 +104,7 @@ export default function CreatePost(){
                         setDescriptionError('');
                     }}
                 />
-                {descriptionError && <p className='text-red-500'>{descriptionError}</p>}
+                {descriptionError && <p>{descriptionError}</p>}
                 <Box mt={3}>
                     <Button
                         variant='contained'

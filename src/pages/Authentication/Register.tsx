@@ -100,9 +100,9 @@ export default function Register() {
                     autoComplete="username"
                     autoFocus
                     />
-                    {error && <p className='text-red-500'>{error}</p>}
+                    {error && <p>{error}</p>}
                     {errors.username && (
-                        <p className='text-red-500'>{`${errors.username.message}`}</p>
+                        <p>{`${errors.username.message}`}</p>
                     )}
                 </Grid>
                 <Grid item xs={12}>
@@ -135,7 +135,7 @@ export default function Register() {
                     }}
                     />
                     {errors.password && (
-                        <p className='text-red-500'>{`${errors.password.message}`}</p>
+                        <p>{`${errors.password.message}`}</p>
                     )}
                 </Grid>
                 </Grid>
