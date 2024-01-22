@@ -40,8 +40,8 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
     return (
         <div>
         {IsVisible && <Box
-            marginLeft={10}
-            marginRight={10}
+            marginLeft={7}
+            marginRight={7}
             marginTop={5}
             >
             <TextField
@@ -54,7 +54,11 @@ export function CreateComment( { postID, IsVisible }: CreateCommentProps) {
             multiline
             rows={3}
             />
-            <Box display="flex" justifyContent="flex-end">
+            <Box 
+                display="flex" 
+                justifyContent="flex-end"
+                marginTop={3}
+            >
                 <Button onClick={AuthCheckandCreateComment} variant="contained" color="secondary">
                     Submit
                 </Button>
